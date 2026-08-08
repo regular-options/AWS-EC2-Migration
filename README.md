@@ -10,11 +10,18 @@ Ensure that the VPC has an internet gateway as well as private and public subnet
 
 
 Create an EC2 instance, I have used Amazon AMI. The instance MUST HAVE at least 3gb of space available in the main filesystem AND 500m in the /tmp directory. In short use t2.small not t2.micro
+
 You can check the storage using the following command: “df -h /” “df -h /tmp”
+
 Ensure that you have enabled http and ssh for inbound traffic as this is a web server it must be available to the PUBLIC then enable it to be given a public IP
+
 install httpd, enable and start the service. Create a index.html in the /var/www/htrml directory
 
+![image_alt](https://github.com/regular-options/AWS-EC2-Migration/blob/532df3b5045e72afa4aac5be7bde09c0088ca611/AWS%202.png)
+
  Create a secondary VPC in a different region, one that you will be migrating the instance to. Use a different subnet to prevent confusion
+
+ ![image_alt](https://github.com/regular-options/AWS-EC2-Migration/blob/532df3b5045e72afa4aac5be7bde09c0088ca611/AWS%203.png)
 
 In the second region in this case it should be us-west-1 go to the application migration service section (MGN)
 Click Get started
@@ -31,6 +38,7 @@ Select other
 Now retrieve the keys both the access key and the secret access key.
 Now go back the MGN tab enter the access key and secret access key of “MigrateUser”
 
+![image_alt](https://github.com/regular-options/AWS-EC2-Migration/blob/532df3b5045e72afa4aac5be7bde09c0088ca611/AWS%204.png)
 
 Now connect to your instance in AWS
 Paste the download installer command in the instance
@@ -38,10 +46,13 @@ It should be installed in the present working directory
 Then paste the second command into the instance
 It will take a little bit of time but the final output should be as follows
 
+![image_alt](https://github.com/regular-options/AWS-EC2-Migration/blob/532df3b5045e72afa4aac5be7bde09c0088ca611/AWS%205.png)
 
 If you receive any errors refer to this link:
 https://docs.aws.amazon.com/mgn/latest/ug/Troubleshooting-Agent-Issues.html#Error-Installation-Failed 
 After this step the instance will be added to the active source servers console
+
+![image_alt](https://github.com/regular-options/AWS-EC2-Migration/blob/532df3b5045e72afa4aac5be7bde09c0088ca611/AWS%206.png)
 
 Once the source server is listed and is “Healthy”
 Go under the settings
@@ -63,7 +74,9 @@ Now go to the EC2 instance in your migration region
 The instance should be named the IP address that it had in the first region
 Connect to it 
 It should have the same configuration as the previous instance 
+
 Congrats you have migrated an instance to another region
 
+![image_alt](https://github.com/regular-options/AWS-EC2-Migration/blob/532df3b5045e72afa4aac5be7bde09c0088ca611/AWS%207.png)
 
 
