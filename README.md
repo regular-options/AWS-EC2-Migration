@@ -6,6 +6,7 @@ AWS documentation
 
 Create a VPC in the first region, in this case us-east-1.
 Ensure that the VPC has an internet gateway as well as private and public subnets
+![image_alt](https://github.com/regular-options/AWS-EC2-Migration/blob/316000f4645992710a9c978f4f2c3ea171d636ed/AWS%201.png)
 
 
 Create an EC2 instance, I have used Amazon AMI. The instance MUST HAVE at least 3gb of space available in the main filesystem AND 500m in the /tmp directory. In short use t2.small not t2.micro
